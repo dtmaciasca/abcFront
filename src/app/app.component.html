@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header *ngIf="autenticado && usuario" >
+  <ul class="nav justify-content-end">
+    <li class="nav-item mr-3">
+      {{usuario.nombre}} {{usuario.apellido}}
+    </li>
+    <li class="nav-item mr-4">
+      <a (click)="cerrarSesion()" data-toggle="tooltip" title="Cerrar sesión">
+        <i class="fas fa-sign-out-alt"></i>
+      </a>
+    </li>
+  </ul>
+</header>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

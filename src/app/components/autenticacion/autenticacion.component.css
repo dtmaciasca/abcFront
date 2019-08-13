@@ -1,0 +1,11 @@
+.login{
+  margin: auto;
+  background-color: #DEDBDB;
+  width: 650px;
+  height: 400px;
+  border: 1px solid;
+}
+form{
+  padding: 30px;
+  padding-top: 60px;
+}
