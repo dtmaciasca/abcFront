@@ -47,7 +47,7 @@ export class ListarEventosComponent implements OnInit {
      },error => {
       console.log('Error eliminar evento: ', error);
     });
-    //location.reload();
+    window.location.reload();
   }
 
   openModal(idEvento){
