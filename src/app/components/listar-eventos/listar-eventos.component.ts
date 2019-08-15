@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Location} from '@angular/common';
 import { EventoService } from '../../services/evento/evento.service';
 import { Evento } from '../../services/evento/evento.model';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, CanActivate, Router } from '@angular/router';
 
 declare let $: any;
 
@@ -20,6 +21,7 @@ export class ListarEventosComponent implements OnInit {
     private activeModal: NgbModal,
     private location: Location,
     private eventoService: EventoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -47,7 +49,11 @@ export class ListarEventosComponent implements OnInit {
      },error => {
       console.log('Error eliminar evento: ', error);
     });
-    location.reload(true);
+    let win = (window as any);
+      if(win.location.search !== '?loaded' ) {
+          win.location.search = '?loaded';
+          win.location.reload();
+      }
   }
 
   openModal(idEvento){
