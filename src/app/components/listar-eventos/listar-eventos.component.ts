@@ -49,11 +49,6 @@ export class ListarEventosComponent implements OnInit {
      },error => {
       console.log('Error eliminar evento: ', error);
     });
-    let win = (window as any);
-      if(win.location.search !== '?loaded' ) {
-          win.location.search = '?loaded';
-          win.location.reload();
-      }
   }
 
   openModal(idEvento){

@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment';
 import { Evento } from '../../services/evento/evento.model';
 import { AutenticacionService } from '../autenticacion/autenticacion.service';
 import { DatosUsuario } from '../../models/datos-usuario';
+import {Location} from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class EventoService {
 
   constructor(
     private httpClient: HttpClient,
-    private autenticacionService: AutenticacionService
+    private autenticacionService: AutenticacionService,
+    private location: Location,
   ) { }
 
   register(evento): Observable<any> {
@@ -104,6 +106,6 @@ getDetalleEvento(idEvento: number): Observable<Evento> {
           //Authorization: 'Token ' + tokenSisred
         })
       };
-    return this.httpClient.delete(environment.apiUrl + 'delete_evento/'+idEvento, options).pipe(map(response => { }));
+    return this.httpClient.delete(environment.apiUrl + 'delete_evento/'+idEvento, options).pipe(map(response => {window.location.reload() }));
   }
 }
