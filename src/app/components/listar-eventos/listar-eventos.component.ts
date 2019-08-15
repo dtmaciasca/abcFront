@@ -39,8 +39,15 @@ export class ListarEventosComponent implements OnInit {
   }
 
   eliminarEvento(idEvento): void {
-    this.eventoService.eliminar(idEvento).subscribe();
-    location.reload();
+    console.log('Evento: ' + idEvento);
+    this.eventoService.eliminar(idEvento).subscribe(
+      result => {
+       // Handle result
+       console.log('Respuesta eliminar evento: ', result)
+     },error => {
+      console.log('Error eliminar evento: ', error);
+    });
+    //location.reload();
   }
 
   openModal(idEvento){
